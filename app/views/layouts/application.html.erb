@@ -7,8 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="page">
+  <div id="header">
+    <div id="logo">
+      <h1>KBME portal</h1>
+    </div>
+    <div id="rightheader">
+      <div id="menu">
+        <%= button_to "Info", '/info/index' %>
+        <%= button_to "Bejelentkezés", '' %>
+      </div>
+      <div id="loggedin">
+        <p>a KURVA ANYAD!!!!!!</p>
+      </div>
+    </div>
+  </div>
+  <div id="main">
+    <%= yield %>
+  </div>
+  <div id="footer"></div>
+</div>
 
-<%= yield %>
 
 </body>
 </html>
