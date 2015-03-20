@@ -8,21 +8,22 @@
 </head>
 <body>
 <div id="page">
-  <div id="header">
-    <div id="logo">
-      <h1>KBME portal</h1>
-    </div>
-    <div id="rightheader">
-      <div id="menu">
-        <%= button_to "Info", '/info/index' %>
-        <%= button_to "Bejelentkezés", '' %>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">KBME Portál</a>
       </div>
-      <div id="loggedin">
-        <p>a KURVA ANYAD!!!!!!</p>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="<%= is_active?("/") %>"> <%= link_to "Info", '/' %></li>
+          <li><%= link_to "Bejelentkezés", ''  %></li>
+        </ul>
       </div>
     </div>
-  </div>
-  <div id="main">
+  </nav>
+
+
+  <div id="main" class="col-md-12">
     <%= yield %>
   </div>
   <div id="footer"></div>
