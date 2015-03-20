@@ -56,3 +56,8 @@
     height: 50px;
     margin: 0;
 }
+
+
+.navbar-default {
+    margin-bottom: 0;
+}
