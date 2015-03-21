@@ -14,34 +14,26 @@
  *= require_self
  */
 
+
+  /*header*/
+  #logo {
+      float: left;
+      font-size: 1.5em;
+      color: #000000;
+      font-weight: 500;
+  }
+
+  #logo:hover {
+      color: #000000;
+      text-decoration: none;
+  }
+
+
 #page {
     width: 1024px;
     height: 768px;
     margin-left: auto;
     margin-right: auto;
-}
-
-#header {
-    background-color: #dddddd;
-    height: 100px;
-    margin: 0;
-}
-
-#logo {
-    float: left;
-}
-
-#rightheader {
-    float: right;
-}
-
-#menu {
-    background-color: #B00100;
-    clear: both;
-}
-
-#loggedin {
-    background-color: #730E15;
 }
 
 #main {
