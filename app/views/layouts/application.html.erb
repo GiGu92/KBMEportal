@@ -27,12 +27,12 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="<%= is_active?("/") %>"> <%= link_to "Info", '/' %></li>
           <% if !logged_in? %>
-              <li class="<%= is_active?("/account/login") %>"><%= link_to "Bejelentkezés", '/account/login'  %></li>
+              <li class="<%= is_active?("/users/login") %>"><%= link_to "Bejelentkezés", '/users/login'  %></li>
           <% else %>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Teszt Elek <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><%= link_to "Profil", '/account/profile' %></li>
+                  <li><%= link_to "Profil", '/users/profile' %></li>
                   <li class="divider"></li>
                   <li><a href="#">Kijelentkezés</a></li>
                 </ul>
@@ -43,7 +43,6 @@
       </div>
     </div>
   </nav>
-
 
   <div id="main" class="col-md-12">
     <%= yield %>
