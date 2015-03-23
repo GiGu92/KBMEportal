@@ -18,7 +18,7 @@
 </head>
 <body>
 <div id="page">
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default", id="header">
     <div class="container-fluid">
       <div class="navbar-header" id="logo">
         <%= link_to "KBME portál", '/', class: "navbar-brand",  id:"logo" %>
@@ -44,12 +44,16 @@
     </div>
   </nav>
 
+
   <div id="main" class="col-md-12">
     <%= yield %>
-    <%= render 'layouts/footer' %>
 
   </div>
-  <div id="footer"></div>
+  <div id="footer">
+    <small>
+        Copyright @ 2015
+    </small>
+  </div>
 </div>
 
 
