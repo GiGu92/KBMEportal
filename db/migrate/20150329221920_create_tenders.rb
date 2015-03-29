@@ -1,0 +1,8 @@
+class CreateTenders < ActiveRecord::Migration
+  def change
+    create_table :tenders do |t|
+
+      t.timestamps null: false
+    end
+  end
+end

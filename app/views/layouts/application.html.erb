@@ -25,10 +25,11 @@
       </div>
       <div class="collapse navbar-collapse" id="menu">
         <ul class="nav navbar-nav navbar-right">
-          <li class="<%= is_active?("/") %>"> <%= link_to "Info", '/' %></li>
+          <li class="<%= is_active?("/") %>"> <%= link_to "Info", '/' %> </li>
           <% if !logged_in? %>
               <li class="<%= is_active?("/users/login") %>"><%= link_to "Bejelentkezés", '/users/login'  %></li>
           <% else %>
+              <li class="<%= is_active?("/rating/show") %>"> <%= link_to "Értékelés", '/rating/show' %> </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Teszt Elek <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">

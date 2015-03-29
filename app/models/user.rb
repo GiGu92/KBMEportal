@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   attr_accessor :training_code
   attr_accessor :activity_outline
   attr_accessor :ranks_in_groups
+  attr_accessor :tender
 end

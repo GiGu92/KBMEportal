@@ -1,0 +1,27 @@
+<div class="row" align="center">
+  <div class="col-md-3">
+    <div class="heading" align="left">
+      <h3>Pályázók</h3>
+      <div class="list-group">
+        <% @users.each do |user| %>
+          <a href="#" class="list-group-item"><%= user.name %></a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="heading" align="left">
+      <h3>Beszámolók</h3>
+    </div>
+    <ul class="nav nav-pills">
+      <li role="presentation" class="active"><a href="#">Home</a></li>
+      <li role="presentation"><a href="#">Profile</a></li>
+      <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+  </div>
+  <div class="col-md-3" align="left">
+    <div class="heading">
+      <h3>asd</h3>
+    </div>
+  </div>
+</div>
