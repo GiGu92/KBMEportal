@@ -1,5 +1,5 @@
 module UsersHelper
 def logged_in?
-  false
+  true
   end
 end
