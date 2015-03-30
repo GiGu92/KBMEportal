@@ -1,27 +1,107 @@
 <div class="row" align="center">
   <div class="col-md-3">
-    <div class="heading" align="left">
-      <h3>Pályázók</h3>
-      <div class="list-group">
-        <% @users.each do |user| %>
-          <a href="#" class="list-group-item"><%= user.name %></a>
-        <% end %>
+    <br/>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h1 class="panel-title">Pályázók</h1>
+      </div>
+      <div class="panel-body">
+        <div class="list-group">
+          <% @users.each do |user| %>
+              <a href="#" class="list-group-item"><%= user.name %></a>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
+
   <div class="col-md-6">
-    <div class="heading" align="left">
-      <h3>Beszámolók</h3>
+    <br/>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h1 class="panel-title">Beszámolók</h1>
+      </div>
+      <div class="panel-body">
+        <ul class="nav nav-tabs">
+          <% @user1.tender.reports.each do |group, report| %>
+            <li role="presentation" class=""><a href="#"><%= group %></a></li>
+          <% end %>
+        </ul>
+        <br/>
+        <p align="left"><%= @user1.tender.reports["Palacsintazo"] %></p>
+      </div>
     </div>
-    <ul class="nav nav-pills">
-      <li role="presentation" class="active"><a href="#">Home</a></li>
-      <li role="presentation"><a href="#">Profile</a></li>
-      <li role="presentation"><a href="#">Messages</a></li>
-    </ul>
   </div>
-  <div class="col-md-3" align="left">
-    <div class="heading">
-      <h3>asd</h3>
+
+  <div class="col-md-3">
+    <br/>
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-primary">Előző</button>
+      <button type="button" class="btn btn-primary">Következő</button>
+    </div>
+    <br/><br/>
+    <div>
+      <%= image_tag("portrait.jpg", height: 190, align: "center") %>
+    </div>
+    <br/>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h1 class="panel-title">Adatok</h1>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-6" align="left">
+            <p>Név: </p>
+          </div>
+          <div class="col-md-6" align="right">
+            <p><%= @user1.name %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6" align="left">
+            <p>Neptun: </p>
+          </div>
+          <div class="col-md-6" align="right">
+            <p><%= @user1.neptun %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6" align="left">
+            <p>Kezdés éve: </p>
+          </div>
+          <div class="col-md-6" align="right">
+            <p><%= @user1.year %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6" align="left">
+            <p>Képzéskód: </p>
+          </div>
+          <div class="col-md-6" align="right">
+            <p><%= @user1.training_code %></p>
+          </div>
+        </div>
+        <br/>
+        <div align="left">
+          <p>Tevékenység rövid kivonata: </p>
+          <div>
+            <p><%= @user1.activity_outline %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h1 class="panel-title">Értékelés</h1>
+      </div>
+      <div class="panel-body">
+        <div class="input-group col-md-12">
+          <input type="number" class="form-control" placeholder="Értékelj!">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button">OK</button>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
