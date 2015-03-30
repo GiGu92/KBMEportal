@@ -1,0 +1,78 @@
+<script type="text/javascript">
+  tinymce.init({
+  selector: ".reporttext",
+  plugins: [
+  "advlist autolink lists print preview ",
+  "searchreplace visualblocks code fullscreen paste"
+  ],
+  toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent"
+});
+</script>
+
+
+<div class="row" align="center">
+  <div class="col-md-4">
+    <br/>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h1 class="panel-title">Beszámolóid</h1>
+      </div>
+      <div class="panel-body">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th align="center">Kör neve</th>
+            <th align="center">Állapot</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @user1.tender.reports.each do |reports| %>
+              <tr>
+                <td align="center"><%= reports.circle %></td>
+                <td align="center"><%= reports.state %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+        <button type="button" class="btn btn-primary btn-right col-md-6" align="right">Új beszámoló</button>
+  </div>
+
+  <div class="col-md-8">
+    <br/>
+    <div class="panel panel-info">
+      <div class="panel-heading" align="left">
+        <h1 class="panel-title">Beszámoló szerkesztése</h1>
+      </div>
+      <div class="panel-body" align="left">
+        <b>Kör neve: </b></br>
+        <select>
+           <% @user1.tender.reports.each do |reports| %>
+              <tr>
+                <td align="center"><%= reports.circle %></td>
+              </tr>
+              <option value="<%= reports.circle %>"><%= reports.circle %></option>
+          <% end %>
+        </select></br></br>
+        <b>Beszámoló:</b></br>
+        <textarea class="reporttext"></textarea>
+      </br>
+      <b>Megjegyzések:</b></br>
+      <div class="panel panel-default">
+        <div class="panel-heading">Körvezető Péter - 2014.02.02. 16:02</div>
+        <div class="panel-body">
+          Még írd bele ezt meg azt! :)
+        </div>
+        </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Pályázó Anna - 2014.02.02. 18:02</div>
+        <div class="panel-body">
+          Jó lesz így!
+        </div>
+      </div>
+      </div>
+    </div>
+
+  </div>
+</div>

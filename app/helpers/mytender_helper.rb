@@ -1,0 +1,2 @@
+module MytenderHelper
+end

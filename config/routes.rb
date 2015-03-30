@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
 
+  get 'owngroupreports/cancel'
+  get 'owngroupreports/submit'
+  get 'owngroupreports/show'
+  get 'mytender/show'
+  get 'mytender/edit_report'
+  get 'mytender/update_report'
+  get 'mytender/new_report'
+  get 'mytender/create_report'
   get 'evaluation/show'
   get 'evaluation/showtotal'
   get 'evaluation/finalize'
