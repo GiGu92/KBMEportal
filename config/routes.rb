@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  get 'evaluation/show'
+  get 'evaluation/showtotal'
+  get 'evaluation/finalize'
   get 'rating/show'
   get 'rating/rate'
   get 'users/edit'

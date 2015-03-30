@@ -6,6 +6,15 @@
         <h1 class="panel-title">Pályázók</h1>
       </div>
       <div class="panel-body">
+        <div class="input-group col-md-12">
+          <input type="text" class="form-control input-md" placeholder="Keresés..." />
+             <span class="input-group-btn">
+               <button class="btn btn-info btn-md" type="button">
+                 <i class="glyphicon glyphicon-search"></i>
+               </button>
+             </span>
+        </div>
+        <br/>
         <div class="list-group">
           <% @users.each do |user| %>
               <a href="#" class="list-group-item"><%= user.name %></a>
