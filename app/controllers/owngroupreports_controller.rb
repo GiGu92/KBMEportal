@@ -31,17 +31,17 @@ class OwngroupreportsController < ApplicationController
     @report2.circle = 'AC Studio'
     
 
-   #@comment1 = Comment.new
-   #@comment1.comment_text = 'Nagyon szép beszámoló!'
-   #@comment1.date = Time.new
-   #@comment1.sender = 'Bíráló Ferenc'
-
-   #@comment2 = Comment.new
-   #@comment2.comment_text = 'Köszönöm!'
-   #@comment2.date = Time.new
-   #@comment2.sender = 'Tesztelő Aladár'
-
-   #@report1.comments = [@comment1, @comment2]
+    #@comment1 = Comment.new
+    #@comment1.comment_text = 'Nagyon szép beszámoló!'
+    #@comment1.date = Time.new
+    #@comment1.sender = 'Bíráló Ferenc'
+#
+    #@comment2 = Comment.new
+    #@comment2.comment_text = 'Köszönöm!'
+    #@comment2.date = Time.new
+    #@comment2.sender = 'Tesztelő Aladár'
+#
+    #@report1.comments = [@comment1, @comment2]
     @tender1.reports = [@report1, @report2]
     @user1.tender = @tender1
   end

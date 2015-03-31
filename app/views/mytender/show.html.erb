@@ -34,7 +34,7 @@
         </table>
       </div>
     </div>
-    <button type="button" class="btn btn-primary btn-right col-md-6 pull-right">Új beszámoló</button>
+    <%= link_to "Új beszámoló", '/mytender/new_report', class: "btn btn-primary col-md-6 pull-right" %>
   </div>
   <div class="col-md-8">
     <br/>
@@ -73,9 +73,9 @@
         </div>
         <textarea rows="2" style="width:100%"></textarea>
         </br>
-        <div class="btn-group btn-right pull-right" role="group" aria-label="...">
-          <button type="button" class="btn btn-primary">Mégse</button>
-          <button type="button" class="btn btn-primary">Mentés</button>
+        <div class="btn-group pull-right" role="group" aria-label="...">
+          <%= link_to "Mégse", '/mytender/show', class: "btn btn-primary" %>
+          <%= link_to "Mentés", '/mytender/show', class: "btn btn-primary" %>
         </div>
       </div>
     </div>
