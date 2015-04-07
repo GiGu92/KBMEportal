@@ -30,7 +30,7 @@
               <li class="<%= is_active?("/users/login") %>"><%= link_to "Bejelentkezés", '/users/login'  %></li>
           <% else %>
               <li class="<%= is_active?("/mytender/show") %>"> <%= link_to "Pályázatom", '/mytender/show' %> </li>
-              <% if circleowner? %>
+              <% if groupowner? %>
                 <li class="<%= is_active?("/owngroupreports/show") %>"> <%= link_to "Körtagjaim beszámolói", '/owngroupreports/show' %> </li>
                 <% if judge? %>
                   <li class="<%= is_active?("/rating/show") %>"> <%= link_to "Értékelés", '/rating/show' %> </li>

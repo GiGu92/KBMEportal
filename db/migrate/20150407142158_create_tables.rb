@@ -3,7 +3,14 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :users do |t|
       t.string :name
+      t.string :username
+      t.string :neptun
+      t.string :email
+      t.integer :year
+      t.string :training_code
+      t.string :activity_outline
       t.boolean :is_reviewer
+      t.string :password
     end
 
     create_table :groups do |t|

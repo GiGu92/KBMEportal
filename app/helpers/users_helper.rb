@@ -3,7 +3,7 @@ def logged_in?
   true
   end
 
-def circleowner?
+def groupowner?
   true
   end
 
