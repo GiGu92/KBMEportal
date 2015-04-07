@@ -31,13 +31,27 @@
         <h1 class="panel-title">Beszámolók</h1>
       </div>
       <div class="panel-body">
-        <ul class="nav nav-tabs">
-          <% @user1.tender.reports.each do |group, report| %>
-            <li role="presentation" class=""><a href="#"><%= group %></a></li>
-          <% end %>
-        </ul>
-        <br/>
-        <p align="left"><%= @user1.tender.reports["Palacsintazo"] %></p>
+        <div role="tabpanel">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs">
+            <% @user2.tender.reports.sort_by { |group, report| group }.each do |group, report| %>
+              <li role="presentation" class="">
+                <a href="#<%= group %>" aria-controls="<%= group %>" role="tab" data-toggle="tab">
+                  <%= group %>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <% @user2.tender.reports.sort_by { |group, report| group }.each do |group, report| %>
+            <div role="tabpanel" class="tab-pane" id="<%= group %>">
+              <p align="left"><%= report %></p>
+            </div>
+            <% end %>
+          </div>
+          <br/>
+        </div>
       </div>
     </div>
   </div>
