@@ -28,7 +28,7 @@
           <tbody>
           <% @user1.tender.reports.each do |reports| %>
               <tr>
-                <td align="center"><%= reports.circle %></td>
+                <td align="center"><%= reports.group %></td>
                 <td align="center"><%= reports.state %></td>
               </tr>
           <% end %>
@@ -50,7 +50,7 @@
         <select>
            <% @user1.tender.reports.each do |reports| %>
               <tr>
-                <td align="center"><%= reports.circle %></td>
+                <td align="center"><%= reports.group %></td>
               </tr>
               <option value="<%= reports.circle %>"><%= reports.circle %></option>
           <% end %>

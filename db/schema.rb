@@ -11,26 +11,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330173949) do
+ActiveRecord::Schema.define(version: 20150407142158) do
 
   create_table "comments", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "report_id",  limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "comments", ["report_id"], name: "index_comments_on_report_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name", limit: 255
   end
 
   create_table "reports", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "tender_id",  limit: 4
+    t.integer  "group_id",   limit: 4
+    t.string   "state",      limit: 255
+    t.text     "text",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
+
+  add_index "reports", ["group_id"], name: "index_reports_on_group_id", using: :btree
+  add_index "reports", ["tender_id"], name: "index_reports_on_tender_id", using: :btree
+
+  create_table "tender_ratings", id: false, force: :cascade do |t|
+    t.integer "user_id",   limit: 4
+    t.integer "tender_id", limit: 4
+    t.integer "rating",    limit: 4
+  end
+
+  add_index "tender_ratings", ["tender_id"], name: "index_tender_ratings_on_tender_id", using: :btree
+  add_index "tender_ratings", ["user_id"], name: "index_tender_ratings_on_user_id", using: :btree
 
   create_table "tenders", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
+  add_index "tenders", ["user_id"], name: "index_tenders_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string  "name",        limit: 255
+    t.boolean "is_reviewer", limit: 1
   end
+
+  create_table "users_in_groups", id: false, force: :cascade do |t|
+    t.integer "user_id",  limit: 4
+    t.integer "group_id", limit: 4
+    t.string  "rank",     limit: 255
+  end
+
+  add_index "users_in_groups", ["group_id"], name: "index_users_in_groups_on_group_id", using: :btree
+  add_index "users_in_groups", ["user_id"], name: "index_users_in_groups_on_user_id", using: :btree
 
 end

@@ -23,12 +23,12 @@ class OwngroupreportsController < ApplicationController
 
     @report1.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     @report1.state = 'elbiralatlan'
-    @report1.circle = 'Palacsintazo'
+    @report1.group = 'Palacsintazo'
    
     @report2 = Report.new
     @report2.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     @report2.state = 'elfogadott'
-    @report2.circle = 'AC Studio'
+    @report2.group = 'AC Studio'
     
 
     #@comment1 = Comment.new
