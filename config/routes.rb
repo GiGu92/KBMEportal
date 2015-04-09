@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get "log_in" => "sessions#new", :as => "log_in"
   #get "sign_up" => "users#new", :as => "sign_up"
 
+  post 'sign_up' => 'users#new'
   get 'sign_up' => 'users#new'
   #root :to => "users#new"
   resources :users

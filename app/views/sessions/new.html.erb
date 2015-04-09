@@ -1,13 +1,20 @@
-<h1>Log in</h1>
-
-<%= form_tag sessions_path do %>
-    <p>
-      <%= label_tag :email %><br />
-      <%= text_field_tag :email, params[:email] %>
-    </p>
-    <p>
-      <%= label_tag :password %><br />
-      <%= password_field_tag :password %>
-    </p>
-    <p class="button"><%= submit_tag "Log in" %></p>
-<% end %>
+<% provide(:title, 'Log in') %>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+      <%= form_tag sessions_path do %>
+        <h2 class="form-signin-heading">Bejelentkezés</h2>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <%= text_field_tag :email, params[:email], :placeholder => "Email", class: 'form-control'%>
+       	</div>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <%= text_field_tag :password, params[:password], :placeholder => "Password", class: 'form-control'%>
+        </div>
+        <div class="input-group">
+        	<%= submit_tag "Bejelentkezés", class: "btn btn-primary btn-lg" %>
+        </div>
+        <% end %>
+    </div>
+</div>
