@@ -26,25 +26,26 @@
       <div class="collapse navbar-collapse" id="menu">
         <ul class="nav navbar-nav navbar-right">
           <li class="<%= is_active?("/") %>"> <%= link_to "Infó", '/' %> </li>
-          <% if !logged_in? %>
-              <li class="<%= is_active?("/users/login") %>"><%= link_to "Bejelentkezés", '/users/login'  %></li>
-          <% else %>
+          <% if current_user %>
               <li class="<%= is_active?("/mytender/show") %>"> <%= link_to "Pályázatom", '/mytender/show' %> </li>
               <% if groupowner? %>
-                <li class="<%= is_active?("/owngroupreports/show") %>"> <%= link_to "Körtagjaim beszámolói", '/owngroupreports/show' %> </li>
-                <% if judge? %>
-                  <li class="<%= is_active?("/rating/show") %>"> <%= link_to "Értékelés", '/rating/show' %> </li>
-                  <li class="<%= is_active?("/evaluation/show") %>"> <%= link_to "Bírálás", '/evaluation/show' %> </li>
-                <% end %>
+                  <li class="<%= is_active?("/owngroupreports/show") %>"> <%= link_to "Körtagjaim beszámolói", '/owngroupreports/show' %> </li>
+                  <% if judge? %>
+                      <li class="<%= is_active?("/rating/show") %>"> <%= link_to "Értékelés", '/rating/show' %> </li>
+                      <li class="<%= is_active?("/evaluation/show") %>"> <%= link_to "Bírálás", '/evaluation/show' %> </li>
+                  <% end %>
               <% end %>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Teszt Elek <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li><%= link_to "Profil", '/users/profile' %></li>
                   <li class="divider"></li>
-                  <li><a href="#">Kijelentkezés</a></li>
+                  <li><%= link_to "Kijelentkezés", 'log_out' %></li>
                 </ul>
               </li>
+          <% else %>
+              <li class="<%= is_active?("/users/login") %>"><%= link_to "Regisztráció", 'sign_up'  %></li>
+              <li class="<%= is_active?("/users/login") %>"><%= link_to "Bejelentkezés", 'log_in'  %></li>
           <% end %>
 
         </ul>
@@ -54,6 +55,9 @@
 
 
   <div id="main" class="col-md-12">
+    <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
     <%= yield %>
 
   </div>

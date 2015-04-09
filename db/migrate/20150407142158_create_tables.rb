@@ -4,12 +4,13 @@ class CreateTables < ActiveRecord::Migration
     create_table :users do |t|
       t.string :name
       t.string :username
+      t.string :password_hash
+      t.string :password_salt
       t.string :neptun
       t.string :email
       t.integer :year
       t.string :training_code
       t.boolean :is_reviewer
-      t.string :password
     end
 
     create_table :groups do |t|

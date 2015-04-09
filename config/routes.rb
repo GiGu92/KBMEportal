@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  get 'sessions/new'
   get 'owngroupreports/cancel'
   get 'owngroupreports/submit'
   get 'owngroupreports/show'
@@ -18,6 +19,15 @@ Rails.application.routes.draw do
   get 'users/update'
   get 'users/profile'
   get 'users/login'
+
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "log_in" => "sessions#new", :as => "log_in"
+  #get "sign_up" => "users#new", :as => "sign_up"
+
+  get 'sign_up' => 'users#new'
+  #root :to => "users#new"
+  resources :users
+  resources :sessions
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

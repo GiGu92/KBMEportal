@@ -60,12 +60,13 @@ ActiveRecord::Schema.define(version: 20150407142158) do
   create_table "users", force: :cascade do |t|
     t.string  "name",          limit: 255
     t.string  "username",      limit: 255
+    t.string  "password_hash", limit: 255
+    t.string  "password_salt", limit: 255
     t.string  "neptun",        limit: 255
     t.string  "email",         limit: 255
     t.integer "year",          limit: 4
     t.string  "training_code", limit: 255
     t.boolean "is_reviewer",   limit: 1
-    t.string  "password",      limit: 255
   end
 
   create_table "users_in_groups", id: false, force: :cascade do |t|
