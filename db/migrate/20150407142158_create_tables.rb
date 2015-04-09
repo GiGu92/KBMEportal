@@ -8,7 +8,6 @@ class CreateTables < ActiveRecord::Migration
       t.string :email
       t.integer :year
       t.string :training_code
-      t.string :activity_outline
       t.boolean :is_reviewer
       t.string :password
     end
@@ -25,6 +24,7 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :tenders do |t|
       t.belongs_to :user, index: true
+      t.string :activity_outline
       t.timestamps null: false
     end
 

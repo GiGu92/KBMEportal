@@ -8,7 +8,7 @@ class MytenderController < ApplicationController
     @user1.email = 'teszt.elek@sch.bme.hu'
     @user1.year = 2012
     @user1.training_code = '5N-A8'
-    @user1.activity_outline = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    #@user1.activity_outline = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     @user1.ranks_in_groups = { "SchRANDom" => "tag", "Palacsintazo" => "tag", "AC Studio & Live" => "tag", "La'Place Cafe" => "korvezeto", "Dezso buli" => "gazdasagis" }
     
 
