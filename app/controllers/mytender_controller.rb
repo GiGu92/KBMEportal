@@ -2,10 +2,10 @@ class MytenderController < ApplicationController
   def show
     @user = User.find(current_user)
     @user.ranks_in_groups = { "SchRANDom" => "tag", "Palacsintazo" => "tag", "AC Studio & Live" => "tag", "La'Place Cafe" => "korvezeto", "Dezso buli" => "gazdasagis" }
+    @reports = @user.tender.reports
+
+    @comments = @reports[0].comments
     
-    @tender = Tender.find_by_user_id(current_user.id)
-    @reports = Report.where(:tender_id => @tender.id )
-   
    #@comment1 = Comment.new
    #@comment1.comment_text = 'Nagyon szép beszámoló!'
    #@comment1.date = Time.new

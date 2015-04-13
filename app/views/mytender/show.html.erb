@@ -26,7 +26,7 @@
           <tbody>
             <% @reports.each do |r| %>
             <tr>
-              <td align="center"><%= r.group %></td>
+              <td align="center"><%= r.group.name %></td>
               <td align="center"><%= r.state %></td>
             </tr>
             <% end %>
@@ -48,9 +48,9 @@
           <select>
             <% @user.tender.reports.each do |reports| %>
             <tr>
-              <td align="center"><%= reports.group %></td>
+              <td align="center"><%= reports.group.name %></td>
             </tr>
-            <option value="<%= reports.group %>"><%= reports.group %></option>
+            <option value="<%= reports.group %>"><%= reports.group.name %></option>
             <% end %>
           </select>
           </br></br>
@@ -59,18 +59,14 @@
         <textarea class="reporttext"></textarea>
         </br>
         <b>Megjegyzések:</b></br>
+        <% @comments.each do |comments| %>
         <div class="panel panel-default">
-          <div class="panel-heading">Körvezető Péter - 2014.02.02. 16:02</div>
+          <div class="panel-heading"><%= comments.user.name %> -  <%= comments.created_at %> </div>
           <div class="panel-body">
-            Még írd bele ezt meg azt! :)
+            <%= comments.text %>
           </div>
         </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">Pályázó Anna - 2014.02.02. 18:02</div>
-          <div class="panel-body">
-            Jó lesz így!
-          </div>
-        </div>
+        <% end %>
         <textarea rows="2" style="width:100%"></textarea>
         </br>
         <div class="btn-group pull-right" role="group" aria-label="...">
