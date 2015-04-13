@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:users).permit(:name, :username, :neptun, :year, :training_code, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :username, :neptun, :year, :training_code, :email, :password, :password_confirmation)
   end
 
   def login
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     @user.ranks_in_groups = { "SchRANDom" => "tag", "Palacsintazo" => "tag", "AC Studio & Live" => "tag", "La'Place Cafe" => "korvezeto", "Dezso buli" => "gazdasagis" }
   end
 
-  
+
    # Confirms a logged-in user.
   def logged_in_user
     unless current_user
