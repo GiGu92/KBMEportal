@@ -18,19 +18,19 @@ class CreateTables < ActiveRecord::Migration
     end
 
     create_table :users_in_groups, id: false do |t|
-      t.belongs_to :users, index: true
+      t.belongs_to :user, index: true
       t.belongs_to :group, index: true
       t.string :rank
     end
 
     create_table :tenders do |t|
-      t.belongs_to :users, index: true
+      t.belongs_to :user, index: true
       t.string :activity_outline
       t.timestamps null: false
     end
 
     create_table :tender_ratings, id: false do |t|
-      t.belongs_to :users, index: true
+      t.belongs_to :user, index: true
       t.belongs_to :tender, index: true
       t.integer :rating
     end
@@ -45,7 +45,8 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :comments do |t|
       t.belongs_to :report, index: true
-      t.belongs_to :users, index: true
+      t.belongs_to :user, index: true
+      t.text :text
       t.timestamps null: false
     end
 
