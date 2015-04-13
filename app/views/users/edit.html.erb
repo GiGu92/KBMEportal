@@ -1,2 +1,107 @@
-<h1>Account#edit</h1>
-<p>Find me in app/views/account/edit.html.erb</p>
+<div class="row" align="center">
+  <div class="col-md-1"></div>
+  <div class="col-md-4">
+
+    <br/>
+
+    <div>
+      <%= image_tag("portrait.jpg", height: 190, align: "center") %>
+    </div>
+
+    <br/>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h1 class="panel-title">Adatok</h1>
+      </div>
+      <div class="panel-body">
+
+        <div class="row">
+          <div class="col-md-5" align="left">
+            <p>Felhasználónév: </p>
+          </div>
+          <div class="col-md-7" align="right">
+            <p><%= @user.username %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5" align="left">
+            <p>Név: </p>
+          </div>
+          <div class="col-md-7" align="right">
+            <p><%= @user.name %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5" align="left">
+            <p>Neptun: </p>
+          </div>
+          <div class="col-md-7" align="right">
+            <p><%= @user.neptun %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5" align="left">
+            <p>Kezdés éve: </p>
+          </div>
+          <div class="col-md-7" align="right">
+            <p><%= @user.year %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5" align="left">
+            <p>Képzéskód: </p>
+          </div>
+          <div class="col-md-7" align="right">
+            <p><%= @user.training_code %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5" align="left">
+            <p>E-mail cím: </p>
+          </div>
+          <div class="col-md-7" align="right">
+            <p><%= @user.email %></p>
+          </div>
+        </div>
+        <br/>
+        <div align="left">
+          <p>Tevékenység rövid kivonata: </p>
+          <div>
+            <p>Dezső buli körtag, AC körtag, La'Place körvezető</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= link_to "Módosítás", '/users/edit', class: "btn btn-primary col-md-6 pull-right" %>
+  </div>
+
+
+  <div class="col-md-6">
+    <br/>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h1 class="panel-title">Körtagságok</h1>
+      </div>
+      <div class="panel-body">
+        <table class="table table-hover" width="300">
+          <thead>
+            <tr>
+              <th align="center">Kör neve</th>
+              <th align="center">Betöltött poszt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user.ranks_in_groups.each do |group, rank| %>
+              <tr>
+                <td align="center"><%= group %></td>
+                <td align="center"><%= rank %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-1"></div>
+</div>

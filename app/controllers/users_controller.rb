@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:users).permit(:name, :username, :neptun, :year, :training_code, :email, :password, :password_confirmation)
   end
 
   def login
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
   def profile
 
-    @user = User.find(1)
+    @user = User.find(current_user)
     @user.ranks_in_groups = { "SchRANDom" => "tag", "Palacsintazo" => "tag", "AC Studio & Live" => "tag", "La'Place Cafe" => "korvezeto", "Dezso buli" => "gazdasagis" }
   end
 end

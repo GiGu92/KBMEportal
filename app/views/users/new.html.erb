@@ -1,27 +1,63 @@
-<h1>Sign Up</h1>
-
-<%= form_for @user do |f| %>
-    <% if @user.errors.any? %>
-        <div class="error_messages">
-          <h2>Form is invalid</h2>
-          <ul>
-            <% for message in @user.errors.full_messages %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
+<% provide(:title, 'Sign up') %>
+<div class="row centered-form">
+  </br>
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Please sign up for KBMEportal</h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for @user do |f| %>
+        <%= render 'shared/error_messages' %> 
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+              <%= f.text_field :name, :placeholder => "Név", class: 'form-control'  %>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+              <%= f.text_field :username, :placeholder => "Felhasználó név", class: 'form-control'  %>
+            </div>
+          </div>
         </div>
-    <% end %>
-    <p>
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
-    </p>
-    <p>
-      <%= f.label :password %><br />
-      <%= f.password_field :password %>
-    </p>
-    <p>
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %>
-    </p>
-    <p class="button"><%= f.submit %></p>
-<% end %>
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+              <%= f.text_field :neptun, :placeholder => "Neptun", class: 'form-control'  %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+              <%= f.text_field :training_code, :placeholder => "Képzés kód", class: 'form-control'  %>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+              <%= f.number_field :year, :placeholder => "Kezdés éve", class: 'form-control'  %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.email_field :email, :placeholder => "Email", class: 'form-control'  %>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+              <%= f.password_field :password, :placeholder => "Jelszó", class: 'form-control'  %>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+              <%= f.password_field :password_confirmation, :placeholder => "Jelszó megerősítése", class: 'form-control'  %>
+            </div>
+          </div>
+        </div>
+        <%= f.submit "Create my account", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
