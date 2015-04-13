@@ -23,6 +23,12 @@ class CreateTables < ActiveRecord::Migration
       t.string :rank
     end
 
+    create_table :user_group_relations do |t|
+      t.belongs_to :user, index: true
+      t.belongs_to :group, index: true
+      t.string :rank
+    end
+
     create_table :tenders do |t|
       t.belongs_to :user, index: true
       t.string :activity_outline

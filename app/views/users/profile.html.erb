@@ -91,10 +91,10 @@
             </tr>
           </thead>
           <tbody>
-            <% @user.ranks_in_groups.each do |group, rank| %>
+            <% @relations.each do |relation| %>
               <tr>
-                <td align="center"><%= group %></td>
-                <td align="center"><%= rank %></td>
+                <td align="center"><%= relation.group.name %></td>
+                <td align="center"><%= relation.rank %></td>
               </tr>
             <% end %>
           </tbody>
