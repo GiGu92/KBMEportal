@@ -46,6 +46,7 @@ class CreateTables < ActiveRecord::Migration
     create_table :comments do |t|
       t.belongs_to :report, index: true
       t.belongs_to :user, index: true
+      t.text :text
       t.timestamps null: false
     end
 
