@@ -1,9 +1,9 @@
 <div class="row" align="center">
-  <div class="col-md-1"></div>
-  <div class="col-md-4">
-
+  <div class="col-md-10 col-md-offset-1">
+  <div class="col-md-5">
     <br/>
-
+    <%= form_for @user do |f| %>
+    <%= render 'shared/error_messages' %>
     <div>
       <%= image_tag("portrait.jpg", height: 190, align: "center") %>
     </div>
@@ -20,7 +20,7 @@
             <p>Felhasználónév: </p>
           </div>
           <div class="col-md-7" align="right">
-            <p><%= @user.username %></p>
+            <p><%= f.username %></p>
           </div>
         </div>
         <div class="row">
@@ -28,7 +28,7 @@
             <p>Név: </p>
           </div>
           <div class="col-md-7" align="right">
-            <p><%= @user.name %></p>
+            <p><%= f.name %></p>
           </div>
         </div>
         <div class="row">
@@ -36,7 +36,7 @@
             <p>Neptun: </p>
           </div>
           <div class="col-md-7" align="right">
-            <p><%= @user.neptun %></p>
+            <p><%= f.text_field :neptun, :placeholder => "Neptun", class: 'form-control'  %></p>
           </div>
         </div>
         <div class="row">
@@ -44,7 +44,7 @@
             <p>Kezdés éve: </p>
           </div>
           <div class="col-md-7" align="right">
-            <p><%= @user.year %></p>
+            <p><%= f.number_field :year, :placeholder => "Kezdés éve", class: 'form-control'  %></p>
           </div>
         </div>
         <div class="row">
@@ -52,7 +52,7 @@
             <p>Képzéskód: </p>
           </div>
           <div class="col-md-7" align="right">
-            <p><%= @user.training_code %></p>
+            <p><%= f.text_field :training_code, :placeholder => "Képzés kód", class: 'form-control'  %></p>
           </div>
         </div>
         <div class="row">
@@ -60,7 +60,7 @@
             <p>E-mail cím: </p>
           </div>
           <div class="col-md-7" align="right">
-            <p><%= @user.email %></p>
+            <p><%= f.email %></p>
           </div>
         </div>
         <br/>
@@ -72,11 +72,12 @@
         </div>
       </div>
     </div>
-    <%= link_to "Módosítás", '/users/edit', class: "btn btn-primary col-md-6 pull-right" %>
+    <% f.submit "Mentés", class: "btn btn-primary col-md-6 pull-right" %>
+    <% end %>
   </div>
 
 
-  <div class="col-md-6">
+  <div class="col-md-7">
     <br/>
     <div class="panel panel-info">
       <div class="panel-heading">
@@ -103,5 +104,5 @@
     </div>
   </div>
 
-  <div class="col-md-1"></div>
+  </div>
 </div>

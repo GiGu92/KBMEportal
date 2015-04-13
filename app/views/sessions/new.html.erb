@@ -10,7 +10,7 @@
        	</div>
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <%= text_field_tag :password, params[:password], :placeholder => "Password", class: 'form-control'%>
+            <%= password_field_tag :password, params[:password], :placeholder => "Password", class: 'form-control'%>
         </div>
         <div class="input-group">
         	<%= submit_tag "Bejelentkezés", class: "btn btn-primary btn-lg" %>

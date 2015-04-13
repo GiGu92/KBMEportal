@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+
+  
 
   def new
     @user = User.new
@@ -20,6 +23,16 @@ class UsersController < ApplicationController
   def login
   end
   def edit
+    @user = User.find(current_user)
+
+    if @user.update_attributes(:neptun, :year, :training_code)
+      
+    else
+      render "edit"
+    end
+
+    @user.ranks_in_groups = { "SchRANDom" => "tag", "Palacsintazo" => "tag", "AC Studio & Live" => "tag", "La'Place Cafe" => "korvezeto", "Dezso buli" => "gazdasagis" }
+ 
   end
   def update
   end
@@ -28,4 +41,14 @@ class UsersController < ApplicationController
     @user = User.find(current_user)
     @user.ranks_in_groups = { "SchRANDom" => "tag", "Palacsintazo" => "tag", "AC Studio & Live" => "tag", "La'Place Cafe" => "korvezeto", "Dezso buli" => "gazdasagis" }
   end
+
+  
+   # Confirms a logged-in user.
+  def logged_in_user
+    unless current_user
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+
 end

@@ -6,4 +6,5 @@ def groupowner?
 def judge?
   true
   end
+
 end
