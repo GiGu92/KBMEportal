@@ -20,7 +20,7 @@
             <p>Felhasználónév: </p>
           </div>
           <div class="col-md-7" align="right">
-            <p><%= f.username %></p>
+            <p><%= @user.username %></p>
           </div>
         </div>
         <div class="row">
@@ -28,7 +28,7 @@
             <p>Név: </p>
           </div>
           <div class="col-md-7" align="right">
-            <p><%= f.name %></p>
+            <p><%= @user.name %></p>
           </div>
         </div>
         <div class="row">
@@ -36,7 +36,7 @@
             <p>Neptun: </p>
           </div>
           <div class="col-md-7" align="right">
-            <p><%= f.text_field :neptun, :placeholder => "Neptun", class: 'form-control'  %></p>
+            <p><%= f.text_field :neptun,  class: 'form-control'  %></p>
           </div>
         </div>
         <div class="row">
@@ -44,7 +44,7 @@
             <p>Kezdés éve: </p>
           </div>
           <div class="col-md-7" align="right">
-            <p><%= f.number_field :year, :placeholder => "Kezdés éve", class: 'form-control'  %></p>
+            <p><%= f.number_field :year, class: 'form-control'  %></p>
           </div>
         </div>
         <div class="row">
@@ -52,7 +52,7 @@
             <p>Képzéskód: </p>
           </div>
           <div class="col-md-7" align="right">
-            <p><%= f.text_field :training_code, :placeholder => "Képzés kód", class: 'form-control'  %></p>
+            <p><%= f.text_field :training_code, class: 'form-control'  %></p>
           </div>
         </div>
         <div class="row">
@@ -60,7 +60,7 @@
             <p>E-mail cím: </p>
           </div>
           <div class="col-md-7" align="right">
-            <p><%= f.email %></p>
+            <p><%= @user.email %></p>
           </div>
         </div>
         <br/>
@@ -70,9 +70,11 @@
             <p>Dezső buli körtag, AC körtag, La'Place körvezető</p>
           </div>
         </div>
+
+        
       </div>
     </div>
-    <% f.submit "Mentés", class: "btn btn-primary col-md-6 pull-right" %>
+    <%= f.submit "Mentés", class: "btn btn-primary col-md-6 pull-right" %>
     <% end %>
   </div>
 

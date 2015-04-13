@@ -22,28 +22,31 @@ class UsersController < ApplicationController
 
   def login
   end
+
   def edit
     @user = User.find(current_user)
+    #if @user.update_attributes(:neptun=>params[:neptun], :year => params[:year], :training_code =>params[:training_code])
+    @user.ranks_in_groups = { "SchRANDom" => "tag", "Palacsintazo" => "tag", "AC Studio & Live" => "tag", "La'Place Cafe" => "korvezeto", "Dezso buli" => "gazdasagis" }
+  end
 
-    if @user.update_attributes(:neptun, :year, :training_code)
-      
+  def update
+    @user = User.find(current_user)
+    if @user.update(params[:user])
+      #redirect_to 'users/profile'
     else
       render "edit"
     end
-
-    @user.ranks_in_groups = { "SchRANDom" => "tag", "Palacsintazo" => "tag", "AC Studio & Live" => "tag", "La'Place Cafe" => "korvezeto", "Dezso buli" => "gazdasagis" }
- 
   end
-  def update
-  end
+  
   def profile
-
     @user = User.find(current_user)
     @user.ranks_in_groups = { "SchRANDom" => "tag", "Palacsintazo" => "tag", "AC Studio & Live" => "tag", "La'Place Cafe" => "korvezeto", "Dezso buli" => "gazdasagis" }
   end
 
+  def delete
+  end
 
-   # Confirms a logged-in user.
+  # Confirms a logged-in user.
   def logged_in_user
     unless current_user
       flash[:danger] = "Please log in."
