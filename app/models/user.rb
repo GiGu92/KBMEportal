@@ -25,9 +25,8 @@ class User < ActiveRecord::Base
   end
 
   attr_accessor :ranks_in_groups
-
   has_one :tender
-  #has_and_belongs_to_many :groups
+
   has_many :user_group_relations
   has_many :groups, through: :user_group_relations
 

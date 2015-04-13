@@ -41,9 +41,6 @@ class UsersController < ApplicationController
   def profile
     @user = User.find(current_user)
     @relations = UserGroupRelation.where(:user_id => @user.id)
-
-
-    #@user.ranks_in_groups = { "SchRANDom" => "tag", "Palacsintazo" => "tag", "AC Studio & Live" => "tag", "La'Place Cafe" => "korvezeto", "Dezso buli" => "gazdasagis" }
   end
 
   def delete

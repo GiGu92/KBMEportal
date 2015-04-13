@@ -24,11 +24,11 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <% @user1.tender.reports.each do |reports| %>
-                  <% if reports.state == "elbiralatlan" %>
+                  <% @relations.each do |relation| %>
+                  <% if relation.user.tender.reports[0].state == "elbiralatlan"%>
                   <tr>
-                    <td align="center"><%= @user1.name %></td>
-                    <td align="center"><%= reports.group %></td>
+                    <td align="center"><%= relation.user.name %></td>
+                    <td align="center"><%= relation.group.name %></td>
                   </tr>
                   <% end %>
                   <% end %>
@@ -44,11 +44,11 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <% @user1.tender.reports.each do |reports| %>
-                  <% if reports.state == "elfogadott" %>
+                  <% @relations.each do |relation| %>
+                  <% if relation.user.tender.reports[0].state == "elfogadott" %>
                   <tr>
-                    <td align="center"><%= @user1.name %></td>
-                    <td align="center"><%= reports.group %></td>
+                    <td align="center"><%= relation.user.name %></td>
+                    <td align="center"><%= relation.group.name %></td>
                   </tr>
                   <% end %>
                   <% end %>
@@ -64,11 +64,11 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <% @user1.tender.reports.each do |reports| %>
-                  <% if reports.state == "elutasitott" %>
+                  <% @relations.each do |relation| %>
+                  <% if relation.user.tender.reports[0].state == "elutasitott" %>
                   <tr>
-                    <td align="center"><%= @user1.name %></td>
-                    <td align="center"><%= reports.group %></td>
+                    <td align="center"><%= relation.user.name %></td>
+                    <td align="center"><%= relation.group.name %></td>
                   </tr>
                   <% end %>
                   <% end %>
@@ -105,7 +105,7 @@
         </div>
         </br>
         <b>Beszámoló:</b></br>
-        <textarea readonly rows="15" style="width:100%"><%= @user1.tender.reports[1].text %></textarea>
+        <textarea readonly rows="15" style="width:100%"><%= @reports[0].text %></textarea>
         </br>
         <form>
           <div align="right">
@@ -116,18 +116,14 @@
           </div>
         </form>
         <b>Megjegyzések:</b></br>
-        <div class="panel panel-default">
-          <div class="panel-heading">Körvezető Péter - 2014.02.02. 16:02</div>
-          <div class="panel-body">
-            Még írd bele ezt meg azt! :)
+        <% @comments.each do |comments| %>
+          <div class="panel panel-default">
+            <div class="panel-heading"><%= comments.user.name %> -  <%= comments.created_at %> </div>
+            <div class="panel-body">
+              <%= comments.text %>
+            </div>
           </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">Pályázó Anna - 2014.02.02. 18:02</div>
-          <div class="panel-body">
-            Jó lesz így!
-          </div>
-        </div>
+        <% end %>
         <textarea rows="2" style="width:100%"></textarea>
         </br>
         <div class="btn-group pull-right" role="group" aria-label="...">
