@@ -24,10 +24,10 @@
             </tr>
           </thead>
           <tbody>
-            <% @user1.tender.reports.each do |reports| %>
+            <% @reports.each do |r| %>
             <tr>
-              <td align="center"><%= reports.group %></td>
-              <td align="center"><%= reports.state %></td>
+              <td align="center"><%= r.group %></td>
+              <td align="center"><%= r.state %></td>
             </tr>
             <% end %>
           </tbody>
@@ -46,7 +46,7 @@
         <b>Kör neve: </b></br>
         <form>
           <select>
-            <% @user1.tender.reports.each do |reports| %>
+            <% @user.tender.reports.each do |reports| %>
             <tr>
               <td align="center"><%= reports.group %></td>
             </tr>
