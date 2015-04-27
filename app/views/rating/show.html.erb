@@ -46,6 +46,7 @@
           <div class="tab-content">
             <% @selected_user_reports.each_with_index do |report, index| %>
             <div role="tabpanel" class="tab-pane <%= "active" if index == 0 %>" id="<%= report.group.id %>">
+              <br/>
               <p align="left"><%= report.text %></p>
             </div>
             <% end %>

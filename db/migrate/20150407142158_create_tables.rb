@@ -35,7 +35,7 @@ class CreateTables < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    create_table :tender_ratings, id: false do |t|
+    create_table :tender_ratings do |t|
       t.belongs_to :user, index: true
       t.belongs_to :tender, index: true
       t.integer :rating

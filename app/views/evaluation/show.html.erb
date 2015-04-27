@@ -11,8 +11,8 @@
           <thead>
           <tr>
             <th align="center">Név</th>
-            <% @user1.tender.ratings.each do |reviewer, rating| %>
-              <th align="center">Bíráló<%= reviewer %></th>
+            <% @selected_user.tender.users.each do |reviewer| %>
+              <th align="center">Bíráló<%= reviewer.id %></th>
             <% end %>
             <th align="center">Átlag</th>
           </tr>
@@ -20,11 +20,11 @@
           <tbody>
           <% @users.each do |user| %>
             <tr>
-              <td align="center"><%= user.name %></td>
-              <% user.tender.ratings.each do |reviewer, rating| %>
-                <td align="center"><%= rating %></td>
+              <td align="center"><%= user[1] %></td>
+              <% TenderRating.where(:tender_id => User.find(user[0]).tender.id ).each do |rating| %>
+                <td align="center"><%= rating.rating %></td>
               <% end %>
-              <td align="center"><%= user.tender.ratings.values.inject(0.0) { |sum, el| sum + el } / user.tender.ratings.values.size %></td>
+              <!-- TODO: Average column -->
             </tr>
           <% end %>
           </tbody>
@@ -58,7 +58,7 @@
             <p>Név: </p>
           </div>
           <div class="col-md-6" align="right">
-            <p><%= @user1.name %></p>
+            <p><%= @selected_user.name %></p>
           </div>
         </div>
         <div class="row">
@@ -66,7 +66,7 @@
             <p>Neptun: </p>
           </div>
           <div class="col-md-6" align="right">
-            <p><%= @user1.neptun %></p>
+            <p><%= @selected_user.neptun %></p>
           </div>
         </div>
         <div class="row">
@@ -74,7 +74,7 @@
             <p>Kezdés éve: </p>
           </div>
           <div class="col-md-6" align="right">
-            <p><%= @user1.year %></p>
+            <p><%= @selected_user.year %></p>
           </div>
         </div>
         <div class="row">
@@ -82,14 +82,14 @@
             <p>Képzéskód: </p>
           </div>
           <div class="col-md-6" align="right">
-            <p><%= @user1.training_code %></p>
+            <p><%= @selected_user.training_code %></p>
           </div>
         </div>
         <br/>
         <div align="left">
           <p>Tevékenység rövid kivonata: </p>
           <div>
-            <p><%= @user1.activity_outline %></p>
+            <p><%= @selected_user.tender.activity_outline %></p>
           </div>
         </div>
 
@@ -99,25 +99,26 @@
             <div class="modal-content">
               <div class="modal-header">
                 <a class="close" data-dismiss="modal">&times;</a>
-                <h3><%= @user1.name %> beszámolói</h3>
+                <h3><%= @selected_user.name %> beszámolói</h3>
               </div>
               <div class="modal-body">
                 <div role="tabpanel">
                   <!-- Nav tabs -->
                   <ul class="nav nav-tabs">
-                    <% @user2.tender.reports.sort_by { |group, report| group }.each do |group, report| %>
-                        <li role="presentation" class="">
-                          <a href="#<%= group %>" aria-controls="<%= group %>" role="tab" data-toggle="tab">
-                            <%= group %>
+                    <% @selected_user_reports.each_with_index do |report, index| %>
+                        <li role="presentation" class="<%= "active" if index == 0 %>">
+                          <a href="#<%= report.group.id %>" aria-controls="<%= report.group.id %>" role="tab" data-toggle="tab">
+                            <%= report.group.name %>
                           </a>
                         </li>
                     <% end %>
                   </ul>
                   <!-- Tab panes -->
                   <div class="tab-content">
-                    <% @user2.tender.reports.sort_by { |group, report| group }.each do |group, report| %>
-                        <div role="tabpanel" class="tab-pane" id="<%= group %>">
-                          <p align="left"><%= report %></p>
+                    <% @selected_user_reports.each_with_index do |report, index| %>
+                        <div role="tabpanel" class="tab-pane <%= "active" if index == 0 %>" id="<%= report.group.id %>">
+                          <br/>
+                          <p align="left"><%= report.text %></p>
                         </div>
                     <% end %>
                   </div>
