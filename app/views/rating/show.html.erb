@@ -17,7 +17,7 @@
         <br/>
         <div class="list-group">
           <% @users.each do |user| %>
-              <a href="?userid=<%= user[0] %>" class="list-group-item"><%= user[1] %></a>
+              <%= active_link_to user[1], '/rating/show?userid=' + user[0].to_s, :active => :exact, class: "list-group-item" %>
           <% end %>
         </div>
       </div>
