@@ -19,6 +19,8 @@ gem 'bootstrap-sass', '~> 3.3.4'
 
 gem 'active_link_to'
 
+gem 'thin'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
