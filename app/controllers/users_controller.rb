@@ -25,8 +25,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(current_user)
+    @relations = UserGroupRelation.where(:user_id => @user.id)
+
     #if @user.update_attributes(:neptun=>params[:neptun], :year => params[:year], :training_code =>params[:training_code])
-    @user.ranks_in_groups = { "SchRANDom" => "tag", "Palacsintazo" => "tag", "AC Studio & Live" => "tag", "La'Place Cafe" => "korvezeto", "Dezso buli" => "gazdasagis" }
   end
 
   def update

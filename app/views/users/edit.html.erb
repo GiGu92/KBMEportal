@@ -85,32 +85,32 @@
   </div>
 
 
-  <div class="col-md-7">
-    <br/>
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <h1 class="panel-title">Körtagságok</h1>
-      </div>
-      <div class="panel-body">
-        <table class="table table-hover" width="300">
-          <thead>
+    <div class="col-md-7">
+      <br/>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h1 class="panel-title">Körtagságok</h1>
+        </div>
+        <div class="panel-body">
+          <table class="table table-hover" width="300">
+            <thead>
             <tr>
               <th align="center">Kör neve</th>
               <th align="center">Betöltött poszt</th>
             </tr>
-          </thead>
-          <tbody>
-            <% @user.ranks_in_groups.each do |group, rank| %>
-              <tr>
-                <td align="center"><%= group %></td>
-                <td align="center"><%= rank %></td>
-              </tr>
+            </thead>
+            <tbody>
+            <% @relations.each do |relation| %>
+                <tr>
+                  <td align="center"><%= relation.group.name %></td>
+                  <td align="center"><%= relation.rank %></td>
+                </tr>
             <% end %>
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-  </div>
 
   </div>
 </div>

@@ -13,20 +13,21 @@ Rails.application.routes.draw do
   get 'evaluation/show'
   get 'evaluation/showtotal'
   get 'evaluation/finalize'
+
   get 'rating/show'
-  get 'rating/rate'
-  
-  get 'users/update'
+  post 'rating/rate'
+
+  post 'users/update'
   get 'users/profile'
   get 'users/login'
+  get 'users/edit'
 
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   post 'sign_up' => 'users#new'
   get 'sign_up' => 'users#new'
 
-  get 'users/edit'
-  
+
   
   resources :users
   resources :sessions

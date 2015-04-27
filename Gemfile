@@ -19,6 +19,8 @@ gem 'bootstrap-sass', '~> 3.3.4'
 
 gem 'active_link_to'
 
+gem 'seed_dump'
+
 gem 'thin'
 
 # Use jquery as the JavaScript library

@@ -20,8 +20,12 @@ class RatingController < ApplicationController
 
     @selected_user = User.find(selected_id)
     @selected_user_reports = @selected_user.tender.reports.sort_by { |report| report.group.name }
+
+    @tender_ratings = TenderRating.where(:user_id => current_user, :tender_id => @selected_user.tender.id)
+    @point ||= 0
   end
 
   def rate
+
   end
 end
