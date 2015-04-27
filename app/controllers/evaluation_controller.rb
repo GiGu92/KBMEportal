@@ -52,7 +52,9 @@ class EvaluationController < ApplicationController
     #@users = [@user1, @user2, @user3]
 
     @users = User.pluck(:id, :name).sort_by { |user| user[1] }
-    selected_id = 1
+    selected_id = request.fullpath.split("userid=")[1]
+    selected_id ||= @users[0][0]
+
     @selected_user = User.find(selected_id)
     @selected_user_reports = @selected_user.tender.reports.sort_by { |report| report.group.name }
 

@@ -67,14 +67,20 @@
         <div align="left">
           <p>Tevékenység rövid kivonata: </p>
           <div>
-            <p>Dezső buli körtag, AC körtag, La'Place körvezető</p>
+            <p><%= @user.tender.activity_outline %></p>
           </div>
         </div>
-
         
       </div>
+      <div class="panel-footer">
+        <div class="row">
+          <div class="btn-group col-md-12" role="group" aria-label="...">
+            <%= link_to "Mégse", '/users/profile', class: "btn btn-default col-md-6 pull-left" %>
+            <%= f.submit "Mentés", class: "btn btn-primary col-md-6 pull-right" %>
+          </div>
+        </div>
+      </div>
     </div>
-    <%= f.submit "Mentés", class: "btn btn-primary col-md-6 pull-right" %>
     <% end %>
   </div>
 

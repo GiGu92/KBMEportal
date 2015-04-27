@@ -19,7 +19,7 @@
           </thead>
           <tbody>
           <% @users.each do |user| %>
-            <tr>
+            <tr data-link="<%= "?userid=" + user[0].to_s %>">
               <td align="center"><%= user[1] %></td>
               <% TenderRating.where(:tender_id => User.find(user[0]).tender.id ).each do |rating| %>
                 <td align="center"><%= rating.rating %></td>
