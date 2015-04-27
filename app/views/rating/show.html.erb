@@ -17,7 +17,7 @@
         <br/>
         <div class="list-group">
           <% @users.each do |user| %>
-              <a href="#" class="list-group-item"><%= user[1] %></a>
+              <a href="?userid=<%= user[0] %>" class="list-group-item"><%= user[1] %></a>
           <% end %>
         </div>
       </div>
@@ -34,8 +34,8 @@
         <div role="tabpanel">
           <!-- Nav tabs -->
           <ul class="nav nav-tabs">
-            <% @selected_user_reports.each do |report| %>
-              <li role="presentation" class="">
+            <% @selected_user_reports.each_with_index do |report, index| %>
+              <li role="presentation" class="<%= "active" if index == 0 %>">
                 <a href="#<%= report.group.id %>" aria-controls="<%= report.group.id %>" role="tab" data-toggle="tab">
                   <%= report.group.name %>
                 </a>
@@ -44,8 +44,8 @@
           </ul>
           <!-- Tab panes -->
           <div class="tab-content">
-            <% @selected_user_reports.each do |report| %>
-            <div role="tabpanel" class="tab-pane" id="<%= report.group.id %>">
+            <% @selected_user_reports.each_with_index do |report, index| %>
+            <div role="tabpanel" class="tab-pane <%= "active" if index == 0 %>" id="<%= report.group.id %>">
               <p align="left"><%= report.text %></p>
             </div>
             <% end %>
@@ -59,8 +59,8 @@
   <div class="col-md-3">
     <br/>
     <div class="btn-group" role="group" aria-label="...">
-      <button type="button" class="btn btn-primary">Előző</button>
-      <button type="button" class="btn btn-primary">Következő</button>
+      <%= link_to "Előző", '/rating/show?userid=' + (@users[@previous_index][0]).to_s, class: "btn btn-primary" %>
+      <%= link_to "Következő", '/rating/show?userid=' + (@users[@next_index][0]).to_s, class: "btn btn-primary" %>
     </div>
     <br/><br/>
     <div>
