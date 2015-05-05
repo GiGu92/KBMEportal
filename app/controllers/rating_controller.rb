@@ -1,6 +1,9 @@
 class RatingController < ApplicationController
   def show
     @users = User.pluck(:id, :name).sort_by { |user| user[1] }
+    @users.each do |user|
+      user[2] = User.find(user[0]).tender.isRatedByUser(current_user.id)
+    end
 
     selected_id = request.fullpath.split("userid=")[1]
     selected_id ||= @users[0][0]
