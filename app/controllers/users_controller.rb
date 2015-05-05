@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(current_user)
     if @user.update(params[:user])
-      #redirect_to 'users/profile'
+      redirect_to '/users/profile'
     else
       render "edit"
     end
