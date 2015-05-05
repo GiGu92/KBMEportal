@@ -21,11 +21,33 @@ class RatingController < ApplicationController
     @selected_user = User.find(selected_id)
     @selected_user_reports = @selected_user.tender.reports.sort_by { |report| report.group.name }
 
-    @tender_ratings = TenderRating.where(:user_id => current_user, :tender_id => @selected_user.tender.id)
-    @point ||= 0
+    tender_rating_relation = TenderRating.where(:user_id => current_user, :tender_id => @selected_user.tender.id)
+    @tender_rating = tender_rating_relation.first
+    @selected_user_rated = !tender_rating_relation.blank?
   end
 
   def rate
+    tender_rating = TenderRating.new
+    tender_rating.user_id = current_user.id
+    selected_id = request.fullpath.split("userid=")[1]
+    selected_user = User.find(selected_id)
+    tender_rating.tender_id = selected_user.tender.id
+    tender_rating.rating = params[:tender_rating]["rating"]
+    tender_rating.save
 
+    redirect_to "rating/show?userid=" + selected_id.to_s
   end
+
+  def modify
+    selected_id = request.fullpath.split("userid=")[1]
+    selected_user = User.find(selected_id)
+    tender_rating_relation = TenderRating.where(:user_id => current_user, :tender_id => selected_user.tender.id)
+    tender_rating = tender_rating_relation.first
+    tender_rating.update_attribute(:rating, params[:tender_rating]["rating"])
+
+    #render plain: tender_rating.inspect
+
+    redirect_to "rating/show?userid=" + selected_id.to_s
+  end
+
 end

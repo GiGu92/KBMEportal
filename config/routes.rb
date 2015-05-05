@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'rating/show'
   post 'rating/rate'
+  patch 'rating/modify'
 
   post 'users/update'
   get 'users/profile'

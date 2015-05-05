@@ -17,7 +17,8 @@
         <br/>
         <div class="list-group">
           <% @users.each do |user| %>
-              <%= active_link_to user[1], '/rating/show?userid=' + user[0].to_s, :active => :exact, class: "list-group-item" %>
+              <%= active_link_to user[1], '/rating/show?userid=' + user[0].to_s, :active => :exact,
+                                 class: "list-group-item" %>
           <% end %>
         </div>
       </div>
@@ -114,17 +115,31 @@
         </div>
       </div>
     </div>
+
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h1 class="panel-title">Értékelés</h1>
       </div>
       <div class="panel-body">
-        <div class="input-group col-md-12">
-          <input type="number" class="form-control" placeholder="Értékelj!">
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="button">OK</button>
-          </span>
-        </div>
+        <% if @selected_user_rated %>
+          <%= form_for @tender_rating, url: "/rating/modify?userid=" + @selected_user.id.to_s do |f| %>
+            <div class="input-group col-md-12">
+              <%= f.number_field :rating, class: 'form-control' %>
+              <span class="input-group-btn">
+                <%= f.submit 'Módosít', class: "btn btn-primary" %>
+              </span>
+            </div>
+          <% end %>
+        <% else %>
+          <%= form_for :tender_rating, url: "/rating/rate?userid=" + @selected_user.id.to_s do |f| %>
+            <div class="input-group col-md-12">
+              <%= f.number_field :rating, class: 'form-control' %>
+              <span class="input-group-btn">
+                <%= f.submit 'OK', class: "btn btn-primary" %>
+              </span>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
