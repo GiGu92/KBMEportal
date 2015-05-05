@@ -5,7 +5,8 @@ class RatingController < ApplicationController
       user[2] = User.find(user[0]).tender.isRatedByUser(current_user.id)
     end
 
-    selected_id = request.fullpath.split("userid=")[1]
+    @fp = request.fullpath
+    selected_id = request.fullpath.split("userid=")[1].to_i
     selected_id ||= @users[0][0]
 
     @previous_index = 0
