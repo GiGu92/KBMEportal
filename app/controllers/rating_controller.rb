@@ -7,7 +7,7 @@ class RatingController < ApplicationController
 
     @fp = request.fullpath
     selected_id = request.fullpath.split("userid=")[1].to_i
-    selected_id ||= @users[0][0]
+    selected_id = @users[0][0] if selected_id == 0
 
     @previous_index = 0
     @selected_index = 0
