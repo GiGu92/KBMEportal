@@ -1,4 +1,4 @@
-Comment.create!([
+﻿Comment.create!([
   {report_id: 1, user_id: 2, text: "Yolex!"},
   {report_id: 2, user_id: 1, text: "Fos! Legyen yo!"},
   {report_id: 1, user_id: 1, text: "Köfönön fépen ^^"},

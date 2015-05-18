@@ -34,7 +34,43 @@
         </table>
       </div>
     </div>
-    <%= link_to "Új beszámoló", '/mytender/new_report', class: "btn btn-primary col-md-6 pull-right" %>
+    <button type="button" class="btn btn-primary col-md-6 pull-right" href="#new_report" data-toggle="modal">Új beszámoló</button>
+    <div class="modal fade" id="new_report">
+      <div class="modal-dialog">
+        <div class="modal-body" >
+          <div class="panel panel-info">
+            <div class="panel-heading" align="left">
+              <a class="close" data-dismiss="modal">&times;</a>
+              <h1 class="panel-title">Új beszámoló</h1>
+            </div>
+            
+            <div class="panel-body" align="left">
+              <%= form_for :new_r, url: {action:"new_report"} do |f| %>
+              <b>Kör neve: </br></br>
+              <select name="group" id=":group">
+                <% @user.tender.reports.each do |reports| %>
+                  <option value=<%= reports.group.id %>><%= reports.group.name %></option>
+                <% end %>
+              </select>
+
+              <b>Beszámoló:</b></br>
+              <%= f.text_area :text, class: 'form_-control' %>
+
+              </br>
+              <b>Megjegyzések:</b></br>
+              </br>
+              
+              <div class="btn-group pull-right" role="group" aria-label="...">
+                <a class="btn btn-primary" data-dismiss="modal">Mégse</a>
+                <%= f.submit 'Mentés', class: "btn btn-primary col-md-6" %>
+              </div>
+              <% end %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="col-md-8">
     <br/>
@@ -45,18 +81,18 @@
       <div class="panel-body" align="left">
         <b>Kör neve: </b></br>
         <form>
-          <select>
+          <select name="selected_report" id="i">
             <% @user.tender.reports.each do |reports| %>
             <tr>
               <td align="center"><%= reports.group.name %></td>
             </tr>
-            <option value="<%= reports.group %>"><%= reports.group.name %></option>
+            <option value='<%= reports.id %>'><%= reports.group.name %></option>
             <% end %>
           </select>
           </br></br>
         </form>
         <b>Beszámoló:</b></br>
-        <textarea class="reporttext"></textarea>
+        <textarea class="reporttext"><%= @selected_report.text %></textarea>
         </br>
         <b>Megjegyzések:</b></br>
         <% @comments.each do |comments| %>

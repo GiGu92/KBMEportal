@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20150407142158) do
   add_index "reports", ["group_id"], name: "index_reports_on_group_id", using: :btree
   add_index "reports", ["tender_id"], name: "index_reports_on_tender_id", using: :btree
 
-  create_table "tender_ratings", id: false, force: :cascade do |t|
+  create_table "tender_ratings", force: :cascade do |t|
     t.integer "user_id",   limit: 4
     t.integer "tender_id", limit: 4
     t.integer "rating",    limit: 4
@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(version: 20150407142158) do
   end
 
   add_index "tenders", ["user_id"], name: "index_tenders_on_user_id", using: :btree
+
+  create_table "user_group_relations", force: :cascade do |t|
+    t.integer "user_id",  limit: 4
+    t.integer "group_id", limit: 4
+    t.string  "rank",     limit: 255
+  end
+
+  add_index "user_group_relations", ["group_id"], name: "index_user_group_relations_on_group_id", using: :btree
+  add_index "user_group_relations", ["user_id"], name: "index_user_group_relations_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string  "name",          limit: 255

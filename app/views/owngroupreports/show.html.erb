@@ -24,18 +24,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <% @relations.each do |relation| %>
-                  <% if relation.user.tender.reports[0].state == "elbiralatlan"%>
+                  <% @reports.each do |reports| %>
+                  <% if reports.state == "Elbiralatlan"%>
                   <tr>
-                    <td align="center"><%= relation.user.name %></td>
-                    <td align="center"><%= relation.group.name %></td>
+                    <td align="center"><%= reports.tender.user.name %></td>
+                    <td align="center"><%= reports.group.name %></td>
                   </tr>
                   <% end %>
                   <% end %>
                 </tbody>
               </table>
             </div>
-            <div role="tabpanel" class="tab-pane" id="elfogadott">
+            <div role="tabpanel" class="tab-pane" id="Elfogadott">
               <table class="table table-hover">
                 <thead>
                   <tr>
@@ -44,18 +44,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <% @relations.each do |relation| %>
-                  <% if relation.user.tender.reports[0].state == "elfogadott" %>
+                  <% @reports.each do |reports| %>
+                  <% if reports.state == "Elfogadott" %>
                   <tr>
-                    <td align="center"><%= relation.user.name %></td>
-                    <td align="center"><%= relation.group.name %></td>
+                    <td align="center"><%= reports.tender.user.name %></td>
+                    <td align="center"><%= reports.group.name %></td>
                   </tr>
                   <% end %>
                   <% end %>
                 </tbody>
               </table>
             </div>
-            <div role="tabpanel" class="tab-pane" id="elutasitott">
+            <div role="tabpanel" class="tab-pane" id="Elutasitott">
               <table class="table table-hover">
                 <thead>
                   <tr>
@@ -64,11 +64,11 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <% @relations.each do |relation| %>
-                  <% if relation.user.tender.reports[0].state == "elutasitott" %>
+                  <% @reports.each do |reports| %>
+                  <% if reports.state == "Elutasitott" %>
                   <tr>
-                    <td align="center"><%= relation.user.name %></td>
-                    <td align="center"><%= relation.group.name %></td>
+                    <td align="center"><%= reports.tender.user.name %></td>
+                    <td align="center"><%= reports.group.name %></td>
                   </tr>
                   <% end %>
                   <% end %>

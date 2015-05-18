@@ -1,21 +1,26 @@
 class MytenderController < ApplicationController
   def show
     @user = User.find(current_user)
-    @user.ranks_in_groups = { "SchRANDom" => "tag", "Palacsintazo" => "tag", "AC Studio & Live" => "tag", "La'Place Cafe" => "korvezeto", "Dezso buli" => "gazdasagis" }
     @reports = @user.tender.reports
+    @i = 2
 
-    @comments = @reports[0].comments
-  end
-
-  def edit_report
+    @selected_report = @reports[@i]    
+    @comments = @selected_report.comments
   end
 
   def update_report
   end
 
   def new_report
+    new_r = Report.new
+    #new_r.tender_id=current_user.tender.id
+    
+    new_r.text = params[:new_r]["text"]
+    new_r.group_id = params[:new_r]["group"]
+    new_r.save
+    
+    
+    redirect_to "mytender/show"
   end
 
-  def create_report
-  end
 end
