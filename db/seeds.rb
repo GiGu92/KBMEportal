@@ -1,4 +1,11 @@
-﻿Comment.create!([
+Authority.create!([
+  {user_id: 1, level: "rvt korvezeto"},
+  {user_id: 2, level: "rvt korvezeto"},
+  {user_id: 3, level: "palyazo"},
+  {user_id: 4, level: "kb"},
+  {user_id: 5, level: "korvezeto"}
+])
+Comment.create!([
   {report_id: 1, user_id: 2, text: "Yolex!"},
   {report_id: 2, user_id: 1, text: "Fos! Legyen yo!"},
   {report_id: 1, user_id: 1, text: "Köfönön fépen ^^"},
@@ -27,10 +34,11 @@ Tender.create!([
 TenderRating.create!([
   {user_id: 1, tender_id: 1, rating: 5},
   {user_id: 1, tender_id: 2, rating: 3},
-  {user_id: 2, tender_id: 1, rating: 4}
+  {user_id: 2, tender_id: 1, rating: 3},
+  {user_id: 1, tender_id: 5, rating: 3}
 ])
 User.create!([
-  {name: "Bán Dániel Péter", username: "banman", password_hash: "$2a$10$a7IhdXN0lUqH52UxQxxbc.QjZ2NGkQByz4x5/mHS6I8WiFgGl2Qnq", password_salt: "$2a$10$a7IhdXN0lUqH52UxQxxbc.", neptun: "asd123", email: "banman@sch.bme.hu", year: 2000, training_code: "5N-A30303", is_reviewer: nil},
+  {name: "Bán Dániel Péter", username: "banman", password_hash: "$2a$10$a7IhdXN0lUqH52UxQxxbc.QjZ2NGkQByz4x5/mHS6I8WiFgGl2Qnq", password_salt: "$2a$10$a7IhdXN0lUqH52UxQxxbc.", neptun: "asd123", email: "banman@sch.bme.hu", year: 2012, training_code: "5N-A30303", is_reviewer: nil},
   {name: "Szalóki Gábor", username: "szali", password_hash: "$2a$10$EqaIumnoIStuBye.EX8knuF58BTLW/63QIpIlMqOkwy/DCLh0L2OK", password_salt: "$2a$10$EqaIumnoIStuBye.EX8knu", neptun: "b0dl28", email: "gigu92@gmail.com", year: 2010, training_code: "5N-M8", is_reviewer: nil},
   {name: "Próba Péter", username: "peti", password_hash: "$2a$10$EqaIumnoIStuBye.EX8knuF58BTLW/63QIpIlMqOkwy/DCLh0L2OK", password_salt: "$2a$10$EqaIumnoIStuBye.EX8knu", neptun: "abc123", email: "peti@peti.peti", year: 2011, training_code: "5N-A8", is_reviewer: nil},
   {name: "Teszt Elek", username: "elek", password_hash: "$2a$10$EqaIumnoIStuBye.EX8knuF58BTLW/63QIpIlMqOkwy/DCLh0L2OK", password_salt: "$2a$10$EqaIumnoIStuBye.EX8knu", neptun: "asdas3", email: "elek@teszt.com", year: 2012, training_code: "5N-A8", is_reviewer: nil},

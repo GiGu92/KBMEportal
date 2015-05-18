@@ -28,12 +28,12 @@
           <li class="<%= is_active?("/") %>"> <%= link_to "Infó", '/' %> </li>
           <% if current_user %>
               <li class="<%= is_active?("/mytender/show") %>"> <%= link_to "Pályázatom", '/mytender/show' %> </li>
-              <% if groupowner? %>
+              <% if current_user.is_groupleader? %>
                   <li class="<%= is_active?("/owngroupreports/show") %>"> <%= link_to "Körtagjaim beszámolói", '/owngroupreports/show' %> </li>
-                  <% if judge? %>
-                      <li class="<%= is_active?("/rating/show") %>"> <%= link_to "Értékelés", '/rating/show' %> </li>
-                      <li class="<%= is_active?("/evaluation/show") %>"> <%= link_to "Bírálás", '/evaluation/show' %> </li>
-                  <% end %>
+              <% end %>
+              <% if current_user.is_reviewer? %>
+                  <li class="<%= is_active?("/rating/show") %>"> <%= link_to "Értékelés", '/rating/show' %> </li>
+                  <li class="<%= is_active?("/evaluation/show") %>"> <%= link_to "Bírálás", '/evaluation/show' %> </li>
               <% end %>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>

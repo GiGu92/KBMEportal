@@ -24,8 +24,21 @@ class User < ActiveRecord::Base
     end
   end
 
+  def is_reviewer?
+    self.authority.level.include? "rvt" or self.authority.level.include? "kb"
+  end
+
+  def is_groupleader?
+    self.authority.level.include? "korvezeto"
+  end
+
+  def is_admin?
+    self.authority.level.include? "admin"
+  end
+
   attr_accessor :ranks_in_groups
   has_one :tender
+  has_one :authority
 
   has_many :user_group_relations
   has_many :groups, through: :user_group_relations

@@ -2,7 +2,7 @@ class MytenderController < ApplicationController
   def show
     @user = User.find(current_user)
     @reports = @user.tender.reports
-    @i = 2
+    @i = 1
 
     @selected_report = @reports[@i]    
     @comments = @selected_report.comments

@@ -13,6 +13,11 @@ class CreateTables < ActiveRecord::Migration
       t.boolean :is_reviewer
     end
 
+    create_table :authorities do |t|
+      t.belongs_to :user, index: true
+      t.string :level
+    end
+
     create_table :groups do |t|
       t.string :name
     end
