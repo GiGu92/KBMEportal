@@ -1,4 +1,5 @@
 <div class="row" align="center">
+
   <div class="col-md-9">
     <br/>
     <div class="panel panel-info">
@@ -6,25 +7,40 @@
         <h1 class="panel-title">Értékelések</h1>
       </div>
       <div class="panel-body">
-        <p align="right">Bíráló szervezet: RVT</p>
-        <table class="table table-hover">
+        <p align="right">Bíráló szervezet: <%= @reviewer_group %></p>
+        <table class="table table-hover" data-sort-name="average" data-sort-order="desc">
           <thead>
           <tr>
-            <th align="center">Név</th>
-            <% @selected_user.tender.users.each do |reviewer| %>
-              <th align="center">Bíráló<%= reviewer.id %></th>
+            <th data-sortable="true" data-align="center">Név</th>
+            <% @reviewerIDs.each do |reviewerID| %>
+              <th data-align="center">Bíráló<%= reviewerID %></th>
             <% end %>
-            <th align="center">Átlag</th>
+            <th data-field="average" data-sortable="true" data-align="center">Átlag</th>
           </tr>
           </thead>
           <tbody>
           <% @users.each do |user| %>
             <tr data-link="<%= "?userid=" + user[0].to_s %>">
               <td align="center"><%= user[1] %></td>
-              <% TenderRating.where(:tender_id => User.find(user[0]).tender.id ).each do |rating| %>
-                <td align="center"><%= rating.rating %></td>
+              <% @reviewerIDs.each do |reviewerID| %>
+                <td align="center">
+                  <%=
+                    tender_rating = TenderRating.where(:tender_id => User.find(user[0]).tender.id, :user_id => reviewerID).first
+                    if tender_rating.nil?
+                      " "
+                    else
+                      tender_rating.rating
+                    end
+                  %>
+                </td>
               <% end %>
-              <!-- TODO: Average column -->
+
+              <td align="center">
+                <%=
+                    ratings = TenderRating.where(:tender_id => User.find(user[0]).tender.id ).pluck(:rating)
+                    ratings.inject{ |sum, el| sum + el }.to_f / ratings.size
+                %>
+              </td>
             </tr>
           <% end %>
           </tbody>
@@ -132,14 +148,10 @@
           </div>
         </div>
 
-        <!--<%= link_to "Beszámolók megtekintése", '', class: "btn btn-default" %>-->
       </div>
     </div>
     <%= link_to "Véglegesítés", '/evaluation/finalize', class: "btn btn-primary col-md-12" %>
     <br/><br/>
     <%= link_to "Összesített nézet", '/evaluation/showtotal', class: "btn btn-primary col-md-12" %>
-    <!--<button type="button" class="btn btn-primary col-md-12">Véglegesítés</button>
-    <br/><br/>
-    <button type="button" class="btn btn-primary col-md-12">Összesített nézet</button>-->
   </div>
 </div>
