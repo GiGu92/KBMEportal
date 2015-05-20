@@ -1,7 +1,60 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+---
+Authority_1:
+  id: 1
+  user_id: 1
+  level: rvt korvezeto
 
-one:
-  level: MyString
+---
+Authority_2:
+  id: 2
+  user_id: 2
+  level: rvt korvezeto
 
-two:
-  level: MyString
+---
+Authority_3:
+  id: 3
+  user_id: 3
+  level: palyazo
+
+---
+Authority_4:
+  id: 4
+  user_id: 4
+  level: kb
+
+---
+Authority_5:
+  id: 5
+  user_id: 5
+  level: korvezeto
+
+---
+Authority_6:
+  id: 6
+  user_id: 6
+  level: rvt korvezeto
+
+---
+Authority_7:
+  id: 7
+  user_id: 7
+  level: rvt korvezeto
+
+---
+Authority_8:
+  id: 8
+  user_id: 8
+  level: rvt korvezeto
+
+---
+Authority_9:
+  id: 9
+  user_id: 9
+  level: rvt korvezeto
+
+---
+Authority_10:
+  id: 10
+  user_id: 10
+  level: rvt korvezeto
+

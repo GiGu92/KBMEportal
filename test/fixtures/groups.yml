@@ -1,7 +1,20 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+---
+Group_1:
+  id: 1
+  name: Babhámozó kör
 
-one:
-  name: MyString
+---
+Group_2:
+  id: 2
+  name: Bázisugró kör
 
-two:
-  name: MyString
+---
+Group_3:
+  id: 3
+  name: Kerékpumpáló kör
+
+---
+Group_4:
+  id: 4
+  name: PudinghegesztőSCH
+

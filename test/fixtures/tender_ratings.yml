@@ -1,11 +1,42 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+---
+TenderRating_1:
+  id: 1
+  user_id: 1
+  tender_id: 1
+  rating: 5
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+---
+TenderRating_2:
+  id: 2
+  user_id: 1
+  tender_id: 2
+  rating: 3
+
+---
+TenderRating_3:
+  id: 3
+  user_id: 2
+  tender_id: 1
+  rating: 3
+
+---
+TenderRating_4:
+  id: 4
+  user_id: 1
+  tender_id: 6
+  rating: 5
+
+---
+TenderRating_5:
+  id: 15
+  user_id: 1
+  tender_id: 5
+  rating: 3
+
+---
+TenderRating_6:
+  id: 16
+  user_id: 2
+  tender_id: 3
+  rating: 1
+

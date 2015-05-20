@@ -1,11 +1,86 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+---
+Tender_1:
+  id: 1
+  user_id: 1
+  activity_outline: Szart sem csináltam, adjatok kiemeltet LOL XD
+  created_at: 2015-04-09 23:23:12.000000000 Z
+  updated_at: 2015-04-09 23:23:12.000000000 Z
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+---
+Tender_2:
+  id: 2
+  user_id: 2
+  activity_outline: Én vittem a házat a hátamon.
+  created_at: 2015-04-09 23:23:12.000000000 Z
+  updated_at: 2015-04-09 23:23:12.000000000 Z
+
+---
+Tender_3:
+  id: 3
+  user_id: 3
+  activity_outline: Peti vagyok, közélő
+  created_at: 2015-05-05 20:09:16.000000000 Z
+  updated_at: 2015-05-05 20:09:16.000000000 Z
+
+---
+Tender_4:
+  id: 4
+  user_id: 4
+  activity_outline: Teszteltem egész évben!!!44
+  created_at: 2015-05-05 20:09:16.000000000 Z
+  updated_at: 2015-05-05 20:09:16.000000000 Z
+
+---
+Tender_5:
+  id: 5
+  user_id: 5
+  activity_outline: Lány vagyok
+  created_at: 2015-05-05 20:09:16.000000000 Z
+  updated_at: 2015-05-05 20:09:16.000000000 Z
+
+---
+Tender_6:
+  id: 6
+  user_id: 6
+  activity_outline: RVTs vagyok, bírálok meg minden
+  created_at: 2015-05-18 20:24:36.000000000 Z
+  updated_at: 2015-05-18 20:24:36.000000000 Z
+
+---
+Tender_7:
+  id: 7
+  user_id: 7
+  activity_outline: Sok körben aktív voltam
+  created_at: 2015-05-18 20:24:36.000000000 Z
+  updated_at: 2015-05-18 20:24:36.000000000 Z
+
+---
+Tender_8:
+  id: 8
+  user_id: 8
+  activity_outline: Elvittem a törpéket a hegybe
+  created_at: 2015-05-18 20:24:36.000000000 Z
+  updated_at: 2015-05-18 20:24:36.000000000 Z
+
+---
+Tender_9:
+  id: 9
+  user_id: 9
+  activity_outline: Végigsírtam 3 könyvet
+  created_at: 2015-05-18 20:24:36.000000000 Z
+  updated_at: 2015-05-18 20:24:36.000000000 Z
+
+---
+Tender_10:
+  id: 10
+  user_id: 10
+  activity_outline: I am powerful, but usually I abandon the hobbits... :(
+  created_at: 2015-05-18 20:24:36.000000000 Z
+  updated_at: 2015-05-18 20:24:36.000000000 Z
+
+---
+Tender_11:
+  id: 11
+  created_at: 2015-05-18 20:24:36.000000000 Z
+  updated_at: 2015-05-18 20:24:36.000000000 Z
+

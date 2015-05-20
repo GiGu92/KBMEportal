@@ -1,11 +1,120 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+---
+User_1:
+  id: 1
+  name: Bán Dániel Péter
+  username: banman
+  password_hash: $2a$10$a7IhdXN0lUqH52UxQxxbc.QjZ2NGkQByz4x5/mHS6I8WiFgGl2Qnq
+  password_salt: $2a$10$a7IhdXN0lUqH52UxQxxbc.
+  neptun: asd123
+  email: banman@sch.bme.hu
+  year: 2012
+  training_code: 5N-A30303
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+---
+User_2:
+  id: 2
+  name: Szalóki Gábor
+  username: szali
+  password_hash: $2a$10$EqaIumnoIStuBye.EX8knuF58BTLW/63QIpIlMqOkwy/DCLh0L2OK
+  password_salt: $2a$10$EqaIumnoIStuBye.EX8knu
+  neptun: b0dl28
+  email: gigu92@gmail.com
+  year: 2010
+  training_code: 5N-M8
+
+---
+User_3:
+  id: 3
+  name: Próba Péter
+  username: peti
+  password_hash: $2a$10$EqaIumnoIStuBye.EX8knuF58BTLW/63QIpIlMqOkwy/DCLh0L2OK
+  password_salt: $2a$10$EqaIumnoIStuBye.EX8knu
+  neptun: abc123
+  email: peti@peti.peti
+  year: 2011
+  training_code: 5N-A8
+
+---
+User_4:
+  id: 4
+  name: Teszt Elek
+  username: elek
+  password_hash: $2a$10$EqaIumnoIStuBye.EX8knuF58BTLW/63QIpIlMqOkwy/DCLh0L2OK
+  password_salt: $2a$10$EqaIumnoIStuBye.EX8knu
+  neptun: asdas3
+  email: elek@teszt.com
+  year: 2012
+  training_code: 5N-A8
+
+---
+User_5:
+  id: 5
+  name: Cserepes Virág
+  username: virag
+  password_hash: $2a$10$EqaIumnoIStuBye.EX8knuF58BTLW/63QIpIlMqOkwy/DCLh0L2OK
+  password_salt: $2a$10$EqaIumnoIStuBye.EX8knu
+  neptun: batman
+  email: virag@cserepes.LOL
+  year: 2013
+  training_code: 5N-A8
+
+---
+User_6:
+  id: 6
+  name: Ervétés László
+  username: rvtlaci
+  password_hash: $2a$10$EqaIumnoIStuBye.EX8knuF58BTLW/63QIpIlMqOkwy/DCLh0L2OK
+  password_salt: $2a$10$EqaIumnoIStuBye.EX8knu
+  neptun: qwertz
+  email: rvtlaci@anyad.tied
+  year: 2012
+  training_code: 5N-A8
+
+---
+User_7:
+  id: 7
+  name: Bíráló Csaba
+  username: csabee
+  password_hash: $2a$10$EqaIumnoIStuBye.EX8knuF58BTLW/63QIpIlMqOkwy/DCLh0L2OK
+  password_salt: $2a$10$EqaIumnoIStuBye.EX8knu
+  neptun: asdfgh
+  email: csabi@asd.asd
+  year: 2011
+  training_code: 5N-A8
+
+---
+User_8:
+  id: 8
+  name: Thorin Oakenshield
+  username: thorin
+  password_hash: $2a$10$EqaIumnoIStuBye.EX8knuF58BTLW/63QIpIlMqOkwy/DCLh0L2OK
+  password_salt: $2a$10$EqaIumnoIStuBye.EX8knu
+  neptun: yxcvbn
+  email: thorin@dwarfmail.com
+  year: 2010
+  training_code: 5N-A8
+
+---
+User_9:
+  id: 9
+  name: Frodo Baggins
+  username: frodo
+  password_hash: $2a$10$EqaIumnoIStuBye.EX8knuF58BTLW/63QIpIlMqOkwy/DCLh0L2OK
+  password_salt: $2a$10$EqaIumnoIStuBye.EX8knu
+  neptun: '123456'
+  email: theringismine@hobbiton.com
+  year: 2013
+  training_code: 5N-A8
+
+---
+User_10:
+  id: 10
+  name: Gandalf the Grey
+  username: gandalf
+  password_hash: $2a$10$EqaIumnoIStuBye.EX8knuF58BTLW/63QIpIlMqOkwy/DCLh0L2OK
+  password_salt: $2a$10$EqaIumnoIStuBye.EX8knu
+  neptun: '987654'
+  email: idomagicnshit@magemail.com
+  year: 2008
+  training_code: 5N-A8
+

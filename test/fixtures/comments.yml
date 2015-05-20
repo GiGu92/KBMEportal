@@ -1,11 +1,36 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+---
+Comment_1:
+  id: 1
+  report_id: 1
+  user_id: 2
+  text: Yolex!
+  created_at: 2015-04-13 17:00:20.000000000 Z
+  updated_at: 2015-04-13 17:00:20.000000000 Z
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+---
+Comment_2:
+  id: 2
+  report_id: 2
+  user_id: 1
+  text: Fos! Legyen yo!
+  created_at: 2015-04-13 17:00:20.000000000 Z
+  updated_at: 2015-04-13 17:00:20.000000000 Z
+
+---
+Comment_3:
+  id: 3
+  report_id: 1
+  user_id: 1
+  text: Köfönön fépen ^^
+  created_at: 2015-04-13 19:00:20.000000000 Z
+  updated_at: 2015-04-13 19:00:20.000000000 Z
+
+---
+Comment_4:
+  id: 4
+  report_id: 4
+  user_id: 1
+  text: LOLgec
+  created_at: 2015-04-13 21:00:20.000000000 Z
+  updated_at: 2015-04-13 21:00:20.000000000 Z
+
