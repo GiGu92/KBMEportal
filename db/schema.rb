@@ -13,6 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20150407142158) do
 
+  create_table "authorities", force: :cascade do |t|
+    t.integer "user_id", limit: 4
+    t.string  "level",   limit: 255
+  end
+
+  add_index "authorities", ["user_id"], name: "index_authorities_on_user_id", using: :btree
+
   create_table "comments", force: :cascade do |t|
     t.integer  "report_id",  limit: 4
     t.integer  "user_id",    limit: 4
