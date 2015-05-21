@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 Authority.create!([
   {user_id: 1, level: "rvt korvezeto"},
   {user_id: 2, level: "rvt korvezeto"},

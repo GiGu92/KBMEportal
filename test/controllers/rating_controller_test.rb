@@ -6,9 +6,10 @@ class RatingControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get rate" do
-    get :rate
-    assert_response :success
+  test "should create tender rating" do
+    assert_difference('TenderRating.count') do
+      post :rate
+    end
   end
 
 end
