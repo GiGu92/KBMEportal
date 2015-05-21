@@ -14,6 +14,8 @@ class UserTest < ActiveSupport::TestCase
     codes.each do |code|
       assert_equal("5N-A8", code)
       assert_equal("5M-M8", code)
+      assert_equal("5N-A7", code)
+      assert_equal("5M-M7", code)
     end
   end
 
@@ -23,5 +25,11 @@ class UserTest < ActiveSupport::TestCase
       assert_equal(6, neptun.length)
     end
   end
+
+  test "year is correct" do 
+    user_years = User.pluck(:year)
+    user_years.each do |year|
+      assert year.to_i >= 1950
+    end
 
 end
