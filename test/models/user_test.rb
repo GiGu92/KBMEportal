@@ -12,9 +12,9 @@ class UserTest < ActiveSupport::TestCase
   test "training code is correct" do
     codes = User.pluck(:training_code)
     codes.each do |code|
-      assert_equal("5N-A8", code)
-      assert_equal("5M-M8", code)
-      assert_equal("5N-A7", code)
+      assert_equal("5N-A8", code) or
+      assert_equal("5M-M8", code) or
+      assert_equal("5N-A7", code) or
       assert_equal("5M-M7", code)
     end
   end
@@ -31,5 +31,6 @@ class UserTest < ActiveSupport::TestCase
     user_years.each do |year|
       assert year.to_i >= 1950
     end
+  end
 
 end
